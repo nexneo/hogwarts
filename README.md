@@ -4,6 +4,9 @@ Example for Go Meetup on GraphQL
 ## Setup
 
 It is assumed that you have working go installation, clone this repository into `GOPATH/src/hogwarts`
+- `cd $GOPATH/src`
+- `git clone https://github.com/nexneo/hogwarts.git`
+- `cd hogwarts`
 
 ### DB Setup
 
