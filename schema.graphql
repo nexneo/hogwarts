@@ -1,0 +1,37 @@
+type House {
+  gid: ID!
+  name: String!
+  teachers: [Teacher]!
+  students: [Student]!
+}
+
+type Teacher {
+    name: String!
+    house: House
+}
+
+type Classroom {
+  gid: ID!
+  subject: String!
+  teacher: Teacher
+  students: [Student]!
+}
+
+type Student {
+  name: String!
+  year: Int!
+  house: House!
+  parents: [Parent]!
+  classrooms: [Classroom]!
+}
+
+type Parent {
+    name: String!
+    students: [Student]!
+}
+
+type Query {
+  houses: [House]!
+  classrooms: [Classroom]!
+  students: [Student]!
+}

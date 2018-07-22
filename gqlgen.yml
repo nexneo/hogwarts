@@ -1,0 +1,18 @@
+schema: schema.graphql
+exec:
+  filename: graph/generated.go
+model:
+  package: models
+  filename: models/generated.go
+
+models:
+  House:
+    model: hogwarts/models.House
+  Teacher:
+    model: hogwarts/models.Teacher
+  Classroom:
+    model: hogwarts/models.Classroom
+  Student:
+    model: hogwarts/models.Student
+  Parent:
+    model: hogwarts/models.Parent
