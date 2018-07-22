@@ -33,9 +33,10 @@ type Student struct {
 
 type Teacher struct {
 	kallax.Model `table:"teachers" pk:"id,autoincr"`
-	ID           int64  `json:"id"`
-	Name         string `json:"name"`
-	House        *House `json:"house" fk:"house_id,inverse"`
+	ID           int64        `json:"id"`
+	Name         string       `json:"name"`
+	House        *House       `json:"house" fk:"house_id,inverse"`
+	Classrooms   []*Classroom `json:"classrooms" fk:"teacher_id"`
 }
 
 type roster struct {
