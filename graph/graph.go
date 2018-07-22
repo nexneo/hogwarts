@@ -14,11 +14,13 @@ func (a *App) Query() QueryResolver {
 }
 
 func (a *queryResolver) Houses(ctx context.Context) ([]*models.House, error) {
-	return models.NewHouseStore(models.DB).Debug().FindAll(models.NewHouseQuery())
+	return models.NewHouseStore(models.DB).Debug().FindAll(
+		models.NewHouseQuery().WithStudents(nil).WithTeachers(nil),
+	)
 }
 
 func (a *queryResolver) Classrooms(ctx context.Context) ([]*models.Classroom, error) {
-	return models.NewClassroomStore(models.DB).FindAll(models.NewClassroomQuery())
+	return models.NewClassroomStore(models.DB).Debug().FindAll(models.NewClassroomQuery())
 }
 func (a *queryResolver) Students(ctx context.Context) ([]*models.Student, error) {
 	return models.NewStudentStore(models.DB).FindAll(models.NewStudentQuery())
