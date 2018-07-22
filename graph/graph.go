@@ -5,11 +5,7 @@ import (
 	"hogwarts/models"
 )
 
-type App struct {
-	houses     []*models.House
-	classrooms []*models.Classroom
-	students   []*models.Student
-}
+type App struct{}
 
 type queryResolver struct{ *App }
 
@@ -18,12 +14,12 @@ func (a *App) Query() QueryResolver {
 }
 
 func (a *queryResolver) Houses(ctx context.Context) ([]*models.House, error) {
-	return a.houses, nil
+	return models.NewHouseStore(models.DB).Debug().FindAll(models.NewHouseQuery())
 }
 
 func (a *queryResolver) Classrooms(ctx context.Context) ([]*models.Classroom, error) {
-	return a.classrooms, nil
+	return models.NewClassroomStore(models.DB).FindAll(models.NewClassroomQuery())
 }
 func (a *queryResolver) Students(ctx context.Context) ([]*models.Student, error) {
-	return a.students, nil
+	return models.NewStudentStore(models.DB).FindAll(models.NewStudentQuery())
 }

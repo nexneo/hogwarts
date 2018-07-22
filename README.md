@@ -13,10 +13,11 @@ It is assumed that you have working go installation, clone this repository into 
 - `psql < db/schema.sql`
 - `psql -d hogwarts < db/seed.sql`
 
-### Install Generators
+### Install Dependencies
 
 - `go get -u github.com/vektah/gqlgen`
 - `go get -u gopkg.in/src-d/go-kallax.v1/...`
+- `go get -u github.com/lib/pq`
 
 ### Run
 
